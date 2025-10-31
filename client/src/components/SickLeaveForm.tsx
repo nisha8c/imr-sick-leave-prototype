@@ -5,29 +5,25 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
-import { Loader2 } from 'lucide-react';
 import {trpc} from "../utils/trpc.ts";
-import {Button} from "./ui/button.tsx";
 import {toast} from "../hooks/use-toast.tsx";
 import {ConfirmDialog} from "./ConfirmDialog.tsx";
-import {Input} from "./ui/input.tsx";
-import {Textarea} from "./ui/textarea.tsx";
 import {AlertDialogAction} from "./ui/alert-dialog.tsx";
 import {EditReportDialog} from "./EditReportDialog.tsx";
 import {SickLeaveResponse} from "@/types/sickLeave.ts";
+import {SickLeaveFormFields} from "./SickLeaveFormFields.tsx";
 
-
-const formSchema = z.object({
-    date: z.string().min(1, 'Date is required'),
-    reason: z.string().min(1, 'Reason is required'),
-    comment: z.string().optional(),
-});
-
-type FormData = z.infer<typeof formSchema>;
 
 export const SickLeaveForm = () => {
     const { t } = useTranslation();
+    const formSchema = z.object({
+        date: z.string().min(1, t('form.dateRequired')),
+        reason: z.string().min(1, t('form.reasonRequired')),
+        comment: z.string().optional(),
+    });
+
+    type FormData = z.infer<typeof formSchema>;
+
     const [showDuplicateDialog, setShowDuplicateDialog] = useState(false);
     const [existingReport, setExistingReport] = useState<any | null>(null);
     const [pendingData, setPendingData] = useState<FormData | null>(null);
@@ -35,6 +31,8 @@ export const SickLeaveForm = () => {
 
     const utils = trpc.useUtils();
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     //const { data: reports = [] } = trpc.sickLeave.list.useQuery();
 
@@ -60,7 +58,9 @@ export const SickLeaveForm = () => {
     });
 
     const onSubmit = async (data: FormData) => {
+        setIsSubmitting(true);
         await submitReport(data);
+        setIsSubmitting(false);
     };
 
     const submitReport = async (data: FormData) => {
@@ -110,63 +110,12 @@ export const SickLeaveForm = () => {
                     <CardTitle className="text-foreground">{t('form.title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                            <FormField
-                                control={form.control}
-                                name="date"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>{t('form.date')}</FormLabel>
-                                        <FormControl>
-                                            <Input type="date" {...field} className="bg-background border-input" />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="reason"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>{t('form.reason')}</FormLabel>
-                                        <FormControl>
-                                            <Input {...field} placeholder={t('form.reasonPlaceholder')} className="bg-background border-input" />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="comment"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>{t('form.comment')}</FormLabel>
-                                        <FormControl>
-                                            <Textarea {...field} placeholder={t('form.commentPlaceholder')} rows={4} className="bg-background border-input resize-none" />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <Button
-                                type="submit"
-                                disabled={createMutation.isPending}
-                                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                            >
-                                {createMutation.isPending ? (
-                                    <>
-                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                        {t('form.submitting')}
-                                    </>
-                                ) : (
-                                    t('form.submit')
-                                )}
-                            </Button>
-                        </form>
-                    </Form>
+                    <SickLeaveFormFields
+                        form={form}
+                        onSubmit={onSubmit}
+                        isSubmitting={isSubmitting}
+                        submitLabel={t('form.submit')}
+                    />
                 </CardContent>
             </Card>
 

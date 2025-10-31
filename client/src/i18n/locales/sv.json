@@ -17,6 +17,7 @@
     "errorTitle": "Fel",
     "errorMessage": "Vänligen fyll i alla obligatoriska fält",
     "dateRequired": "Datum krävs",
+    "reasonRequired": "Orsak är obligatorisk",
     "duplicateTitle": "Rapport finns redan",
     "duplicateDescription": "En sjukfrånvaro rapport för detta datum finns redan. Vill du redigera den befintliga rapporten eller lägga till en ny?",
     "duplicateCancel": "Avbryt",

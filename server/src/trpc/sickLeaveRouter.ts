@@ -23,9 +23,25 @@ export const sickLeaveRouter = router({
             })
         )
         .mutation(async ({ input }) => {
-            const localDate = dayjs.tz(input.date, input.timezone).startOf("day").toDate();
+            //const localDate = dayjs.tz(input.date, input.timezone).startOf("day").toDate();
+            const localDate = dayjs.tz(`${input.date}T00:00:00`, input.timezone);
 
-            const existing = await prisma.sickLeave.findFirst({ where: { date: localDate } });
+            const existing = await prisma.sickLeave.findFirst({
+                where: {
+                    AND: [
+                        {
+                            date: {
+                                gte: localDate.toDate(),
+                                lt: localDate.add(1, "day").toDate(),
+                            },
+                        },
+                        {
+                            timezone: input.timezone,
+                        },
+                    ],
+                },
+            });
+
             if (existing) {
                 return {
                     message: "duplicate",
@@ -36,7 +52,7 @@ export const sickLeaveRouter = router({
             try {
                 const newEntry = await prisma.sickLeave.create({
                     data: {
-                        date: localDate,
+                        date: localDate.toDate(),
                         reason: input.reason,
                         comment: input.comment,
                         timezone: input.timezone,
