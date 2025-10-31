@@ -14,7 +14,7 @@ The solution includes:
 
 
 ## ⚙️ Tech Stack
-<img width="810" height="335" alt="tech-imr" src="https://github.com/user-attachments/assets/ee8c40d1-af68-44f3-8a81-684e81676581" />
+<img width="835" height="291" alt="tech-imr" src="https://github.com/user-attachments/assets/2ab305c6-6919-434e-a511-6364264551dd" />
 
 
 ## 🚀 Running the Project
