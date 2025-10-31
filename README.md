@@ -71,6 +71,39 @@ npm run dev
 <img width="1283" height="919" alt="german-imr" src="https://github.com/user-attachments/assets/4df1e806-2e13-4b52-82cc-dbdc958eb761" />
 <img width="1283" height="919" alt="svenska-imr" src="https://github.com/user-attachments/assets/276f04e5-a453-4a49-b33d-8ce21c4bdfb1" />
 
+## 🧪 Testing the API (Important Note about tRPC)
+
+tRPC endpoints (like `sickLeave.create`, `sickLeave.list`, etc.) are **not traditional REST APIs**.  
+They are **remote procedure calls (RPCs)** that can only be invoked through the **frontend client**.
+
+### For example, the route:
+http://localhost:4000/trpc/sickLeave.create
+will show:
+
+{
+  "error": {
+    "message": "Unsupported GET-request to mutation procedure at path \"sickLeave.create\"",
+    "code": -32005,
+    "data": {
+      "code": "METHOD_NOT_SUPPORTED",
+      "httpStatus": 405,
+      "stack": "TRPCError: Unsupported GET-request to mutation procedure at path \"sickLeave.create\"\n    at /Users/nishachavan/imr-sick-leave/server/node_modules/@trpc/server/dist/resolveResponse-OV7qVwiT.cjs:1937:67\n    at Array.map (\u003Canonymous\u003E)\n    at Object.resolveResponse (/Users/nishachavan/imr-sick-leave/server/node_modules/@trpc/server/dist/resolveResponse-OV7qVwiT.cjs:1929:31)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/nishachavan/imr-sick-leave/server/node_modules/@trpc/server/dist/node-http-D37fGQh1.cjs:201:22",
+      "path": "sickLeave.create"
+    }
+  }
+}
+
+
+### BUT : 
+if you try to open it in the browser — this is expected.
+
+## ✅ To test them properly:
+1. Run both frontend and backend.
+2. Open your app in the browser → [http://localhost:5173](http://localhost:5173)
+3. Create a sick leave report using the form.
+4. Open **DevTools → Network tab**.
+5. You’ll see a `POST` request to:
+<img width="753" height="832" alt="Api-test-imr" src="https://github.com/user-attachments/assets/ccdf938d-5d31-4047-8e92-18597af4ae9d" />
 
 
 
