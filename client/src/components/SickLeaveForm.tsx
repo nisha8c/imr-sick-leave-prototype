@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import {getSickLeaveFormSchema, SickLeaveFormData} from "../schemas/sickLeaveSchema.ts";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -26,18 +27,8 @@ dayjs.extend(isSameOrBefore);
 
 export const SickLeaveForm = () => {
     const { t } = useTranslation();
-    const formSchema = z.object({
-        date: z
-            .string()
-            .min(1, t('form.dateRequired'))
-            .refine((val) => dayjs(val).isSameOrBefore(dayjs(), 'day'), {
-                message: t('form.futureDateNotAllowed'),
-            }),
-        reason: z.string().min(1, t('form.reasonRequired')),
-        comment: z.string().optional(),
-    });
-
-    type FormData = z.infer<typeof formSchema>;
+    const formSchema = getSickLeaveFormSchema(t);
+    type FormData = SickLeaveFormData;
 
     const [showDuplicateDialog, setShowDuplicateDialog] = useState(false);
     const [existingReport, setExistingReport] = useState<any | null>(null);

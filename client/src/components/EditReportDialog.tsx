@@ -11,6 +11,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import {SickLeaveFormFields} from "./SickLeaveFormFields.tsx";
+import {getSickLeaveFormSchema, SickLeaveFormData} from "../schemas/sickLeaveSchema.ts";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -23,18 +24,8 @@ interface EditReportDialogProps {
 
 export const EditReportDialog = ({ report, open, onOpenChange }: EditReportDialogProps) => {
     const { t } = useTranslation();
-    const formSchema = z.object({
-        date: z
-            .string()
-            .min(1, t('form.dateRequired'))
-            .refine((val) => dayjs(val).isSameOrBefore(dayjs(), 'day'), {
-                message: t('form.futureDateNotAllowed'),
-            }),
-        reason: z.string().min(1, t('form.reasonRequired')),
-        comment: z.string().optional(),
-    });
-
-    type FormData = z.infer<typeof formSchema>;
+    const formSchema = getSickLeaveFormSchema(t);
+    type FormData = SickLeaveFormData;
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
