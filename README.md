@@ -14,12 +14,7 @@ The solution includes:
 
 
 ## ⚙️ Tech Stack
-Layer	Technology
-Frontend	React (TypeScript), Vite, React Hook Form, Zod, Tailwind CSS, i18next
-Backend	Node.js, tRPC, Prisma
-Database	PostgreSQL
-Validation	Zod (shared between frontend & backend)
-Date handling	Day.js (with timezone support)
+<img width="810" height="335" alt="tech-imr" src="https://github.com/user-attachments/assets/ee8c40d1-af68-44f3-8a81-684e81676581" />
 
 
 ## 🚀 Running the Project
