@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "IMR Sjukfrånvaro Rapportering"
+  },
+  "form": {
+    "title": "Rapportera Sjukfrånvaro",
+    "date": "Datum",
+    "datePlaceholder": "Välj datum",
+    "reason": "Anledning",
+    "reasonPlaceholder": "t.ex. Influensa, Migrän, Ryggsmärta",
+    "comment": "Ytterligare Kommentar (Valfritt)",
+    "commentPlaceholder": "Eventuell ytterligare information...",
+    "submit": "Skicka Rapport",
+    "submitting": "Skickar...",
+    "successTitle": "Framgång",
+    "successMessage": "Sjukfrånvaro rapporterad framgångsrikt",
+    "errorTitle": "Fel",
+    "errorMessage": "Vänligen fyll i alla obligatoriska fält",
+    "dateRequired": "Datum krävs",
+    "duplicateTitle": "Rapport finns redan",
+    "duplicateDescription": "En sjukfrånvaro rapport för detta datum finns redan. Vill du redigera den befintliga rapporten eller lägga till en ny?",
+    "duplicateCancel": "Avbryt",
+    "duplicateEdit": "Redigera befintlig",
+    "duplicateAddAnyway": "Lägg till ny"
+  },
+  "list": {
+    "title": "Min Sjukfrånvaro Historik",
+    "empty": "Inga sjukfrånvaro rapporter ännu",
+    "emptyDescription": "Dina inskickade sjukfrånvaro rapporter kommer att visas här",
+    "reason": "Anledning",
+    "comment": "Kommentar",
+    "noReason": "Ingen anledning angiven",
+    "noComment": "Ingen kommentar",
+    "submitted": "Inskickad",
+    "filterLatest": "Senaste 5",
+    "filterAll": "Alla Rapporter",
+    "filterMonth": "Per Månad",
+    "filterYear": "Per År",
+    "selectMonth": "Välj Månad",
+    "selectYear": "Välj År"
+  },
+  "edit": {
+    "title": "Redigera Sjukfrånvaro Rapport",
+    "save": "Spara Ändringar",
+    "saving": "Sparar...",
+    "cancel": "Avbryt",
+    "successTitle": "Uppdaterad",
+    "successMessage": "Sjukfrånvaro rapport uppdaterad framgångsrikt"
+  },
+  "delete": {
+    "title": "Ta Bort Rapport",
+    "description": "Är du säker på att du vill ta bort denna sjukfrånvaro rapport? Denna åtgärd kan inte ångras.",
+    "confirm": "Ta Bort",
+    "cancel": "Avbryt",
+    "successTitle": "Borttagen",
+    "successMessage": "Sjukfrånvaro rapport borttagen framgångsrikt",
+    "errorMessage": "Misslyckades att ta bort rapport"
+  },
+  "language": {
+    "select": "Språk"
+  }
+}

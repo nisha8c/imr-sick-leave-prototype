@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "IMR Sick Leave Reporting"
+  },
+  "form": {
+    "title": "Report Sick Leave",
+    "date": "Date",
+    "datePlaceholder": "Select date",
+    "reason": "Reason",
+    "reasonPlaceholder": "e.g., Flu, Migraine, Back pain",
+    "comment": "Additional Comment (Optional)",
+    "commentPlaceholder": "Any additional information...",
+    "submit": "Submit Report",
+    "submitting": "Submitting...",
+    "successTitle": "Success",
+    "successMessage": "Sick leave reported successfully",
+    "errorTitle": "Error",
+    "errorMessage": "Please fill in all required fields",
+    "dateRequired": "Date is required",
+    "duplicateTitle": "Report Already Exists",
+    "duplicateDescription": "A sick leave report for this date already exists. Would you like to edit the existing report or add a new one?",
+    "duplicateCancel": "Cancel",
+    "duplicateEdit": "Edit Existing",
+    "duplicateAddAnyway": "Add New"
+  },
+  "list": {
+    "title": "My Sick Leave History",
+    "empty": "No sick leave reports yet",
+    "emptyDescription": "Your submitted sick leave reports will appear here",
+    "reason": "Reason",
+    "comment": "Comment",
+    "noReason": "No reason provided",
+    "noComment": "No comment",
+    "submitted": "Submitted",
+    "filterLatest": "Latest 5",
+    "filterAll": "All Reports",
+    "filterMonth": "By Month",
+    "filterYear": "By Year",
+    "selectMonth": "Select Month",
+    "selectYear": "Select Year"
+  },
+  "edit": {
+    "title": "Edit Sick Leave Report",
+    "save": "Save Changes",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "successTitle": "Updated",
+    "successMessage": "Sick leave report updated successfully"
+  },
+  "delete": {
+    "title": "Delete Report",
+    "description": "Are you sure you want to delete this sick leave report? This action cannot be undone.",
+    "confirm": "Delete",
+    "cancel": "Cancel",
+    "successTitle": "Deleted",
+    "successMessage": "Sick leave report deleted successfully",
+    "errorMessage": "Failed to delete report"
+  },
+  "language": {
+    "select": "Language"
+  }
+}

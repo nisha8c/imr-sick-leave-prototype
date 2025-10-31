@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "IMR Krankmeldung"
+  },
+  "form": {
+    "title": "Krankmeldung Einreichen",
+    "date": "Datum",
+    "datePlaceholder": "Datum auswählen",
+    "reason": "Grund",
+    "reasonPlaceholder": "z.B. Grippe, Migräne, Rückenschmerzen",
+    "comment": "Zusätzlicher Kommentar (Optional)",
+    "commentPlaceholder": "Weitere Informationen...",
+    "submit": "Meldung Absenden",
+    "submitting": "Wird gesendet...",
+    "successTitle": "Erfolg",
+    "successMessage": "Krankmeldung erfolgreich gemeldet",
+    "errorTitle": "Fehler",
+    "errorMessage": "Bitte füllen Sie alle Pflichtfelder aus",
+    "dateRequired": "Datum ist erforderlich",
+    "duplicateTitle": "Meldung existiert bereits",
+    "duplicateDescription": "Eine Krankmeldung für dieses Datum existiert bereits. Möchten Sie die vorhandene Meldung bearbeiten oder eine neue hinzufügen?",
+    "duplicateCancel": "Abbrechen",
+    "duplicateEdit": "Vorhandene bearbeiten",
+    "duplicateAddAnyway": "Neue hinzufügen"
+  },
+  "list": {
+    "title": "Meine Krankmeldungen",
+    "empty": "Noch keine Krankmeldungen",
+    "emptyDescription": "Ihre eingereichten Krankmeldungen werden hier angezeigt",
+    "reason": "Grund",
+    "comment": "Kommentar",
+    "noReason": "Kein Grund angegeben",
+    "noComment": "Kein Kommentar",
+    "submitted": "Eingereicht",
+    "filterLatest": "Neueste 5",
+    "filterAll": "Alle Meldungen",
+    "filterMonth": "Nach Monat",
+    "filterYear": "Nach Jahr",
+    "selectMonth": "Monat Wählen",
+    "selectYear": "Jahr Wählen"
+  },
+  "edit": {
+    "title": "Krankmeldung Bearbeiten",
+    "save": "Änderungen Speichern",
+    "saving": "Speichern...",
+    "cancel": "Abbrechen",
+    "successTitle": "Aktualisiert",
+    "successMessage": "Krankmeldung erfolgreich aktualisiert"
+  },
+  "delete": {
+    "title": "Meldung Löschen",
+    "description": "Sind Sie sicher, dass Sie diese Krankmeldung löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "confirm": "Löschen",
+    "cancel": "Abbrechen",
+    "successTitle": "Gelöscht",
+    "successMessage": "Krankmeldung erfolgreich gelöscht",
+    "errorMessage": "Meldung konnte nicht gelöscht werden"
+  },
+  "language": {
+    "select": "Sprache"
+  }
+}
