@@ -68,9 +68,12 @@ export const SickLeaveList = () => {
         <>
             <Card className="border-border md:max-h-[calc(100vh-12rem)] md:flex md:flex-col overflow-hidden">
                 <CardHeader>
-                    <CardTitle>{t('list.title')}</CardTitle>
-                    <div className="space-y-3">
-                        <div className="flex items-center gap-2 mt-4">
+                    <CardTitle className={'mb-6'}>{t('list.title')}</CardTitle>
+
+                    {/* Filters Row */}
+                    <div className="mt-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
+                        {/* Left side: Filter type */}
+                        <div className="flex items-center gap-2">
                             <Filter className="h-4 w-4 text-muted-foreground" />
                             <ReusableSelect
                                 value={filterType}
@@ -83,27 +86,35 @@ export const SickLeaveList = () => {
                                 ]}
                             />
                         </div>
-                        {filterType === 'month' && availableMonths.length > 0 && (
-                            <ReusableSelect
-                                value={selectedMonth}
-                                onValueChange={setSelectedMonth}
-                                placeholder={t('list.selectMonth')}
-                                options={availableMonths.map(m => ({
-                                    value: m,
-                                    label: format(new Date(m + '-01'), 'MMMM yyyy', { locale: getLocale() }),
-                                }))}
-                            />
-                        )}
-                        {filterType === 'year' && availableYears.length > 0 && (
-                            <ReusableSelect
-                                value={selectedYear}
-                                onValueChange={setSelectedYear}
-                                placeholder={t('list.selectYear')}
-                                options={availableYears.map(y => ({ value: y, label: y }))}
-                            />
-                        )}
+
+                        {/* Right side: conditional month/year selectors */}
+                        <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-2 w-full lg:w-auto">
+                            {filterType === 'month' && availableMonths.length > 0 && (
+                                <ReusableSelect
+                                    value={selectedMonth}
+                                    onValueChange={setSelectedMonth}
+                                    placeholder={t('list.selectMonth')}
+                                    options={availableMonths.map(m => ({
+                                        value: m,
+                                        label: format(new Date(m + '-01'), 'MMMM yyyy', { locale: getLocale() }),
+                                    }))}
+                                    triggerClassName="w-full lg:w-[200px]"
+                                />
+                            )}
+
+                            {filterType === 'year' && availableYears.length > 0 && (
+                                <ReusableSelect
+                                    value={selectedYear}
+                                    onValueChange={setSelectedYear}
+                                    placeholder={t('list.selectYear')}
+                                    options={availableYears.map(y => ({ value: y, label: y }))}
+                                    triggerClassName="w-full lg:w-[160px]"
+                                />
+                            )}
+                        </div>
                     </div>
                 </CardHeader>
+
                 <CardContent className="flex-1 overflow-y-auto pr-2">
                     {filteredReports.length === 0 ? (
                         <div className="text-center py-12">

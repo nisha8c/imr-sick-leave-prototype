@@ -36,7 +36,7 @@ export const SickLeaveForm = () => {
     const utils = trpc.useUtils();
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    const { data: reports = [] } = trpc.sickLeave.list.useQuery();
+    //const { data: reports = [] } = trpc.sickLeave.list.useQuery();
 
     const createMutation = trpc.sickLeave.create.useMutation({
         onSuccess: async (res) => {
@@ -59,30 +59,9 @@ export const SickLeaveForm = () => {
         defaultValues: { date: '', reason: '', comment: '' },
     });
 
-    /*
-    const onSubmit = async (data: FormData) => {
-        // Get the latest reports directly
-        const currentReports = await utils.sickLeave.list.fetch();
-
-        const normalize = (d: string) => d.split('T')[0] ?? d;
-        const existing = currentReports.find(r => normalize(r.date) === data.date);
-
-        if (existing) {
-            setExistingReport(existing);
-            setPendingData(data);
-            setShowDuplicateDialog(true);
-            return;
-        }
-
-        await submitReport(data);
-    };
-
-     */
-
     const onSubmit = async (data: FormData) => {
         await submitReport(data);
     };
-
 
     const submitReport = async (data: FormData) => {
         try {
@@ -174,7 +153,7 @@ export const SickLeaveForm = () => {
                             />
                             <Button
                                 type="submit"
-                                disabled={createMutation.isPending || !reports.length}
+                                disabled={createMutation.isPending}
                                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                             >
                                 {createMutation.isPending ? (
