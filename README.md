@@ -27,7 +27,7 @@ Date handling	Day.js (with timezone support)
 git clone https://github.com/<your-username>/imr-sick-leave-prototype.git
 cd imr-sick-leave-prototype
 
-2. Install dependencies in both 'client' and 'server' folder
+2. Install dependencies in both 'client' and 'server' folder: 
 npm install
 
 3. Setup environment variables (in server folder's .env file)
@@ -37,13 +37,13 @@ Create a .env file with your Postgres connection string:
 DATABASE_URL="postgresql://user:password@localhost:5432/sickleave"
 PORT=4000
 
-4. Run Prisma migrations (in server folder)
+4. Run Prisma migrations (in server folder): 
 npx prisma migrate dev
 
-5. Start the development server
+5. Start the development server: 
 npm run dev
 
-6. Start Client
+6. Start Client: 
 npm run dev
 
 
