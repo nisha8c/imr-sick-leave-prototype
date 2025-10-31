@@ -59,7 +59,7 @@ npm run dev
 🧠 Type-safe end-to-end validation
 
 ## 🧩 App Screen:
-<img width="1283" height="919" alt="imr-1" src="https://github.com/user-attachments/assets/b324f8ba-921b-4581-9925-b9a28c5506fe" />
+<img width="1028" height="918" alt="IMR-1" src="https://github.com/user-attachments/assets/f4715fc4-995d-4eb2-86f5-ec3fcbefbfba" />
 <img width="1283" height="919" alt="imr2" src="https://github.com/user-attachments/assets/9dc213b6-ce9d-4654-99b0-d45fbb9be73a" />
 <img width="1283" height="919" alt="exists-imr" src="https://github.com/user-attachments/assets/1d35c32b-bea1-4d56-b8ae-98dd5e318060" />
 <img width="1283" height="919" alt="imr-edit" src="https://github.com/user-attachments/assets/4f8107b0-de61-48bc-830c-330cc188e1dc" />
