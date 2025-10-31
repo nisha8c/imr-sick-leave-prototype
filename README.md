@@ -103,6 +103,8 @@ if you try to open it in the browser — this is expected.
 3. Create a sick leave report using the form.
 4. Open **DevTools → Network tab**.
 5. You’ll see a `POST` request to:
+
+
 <img width="753" height="832" alt="Api-test-imr" src="https://github.com/user-attachments/assets/ccdf938d-5d31-4047-8e92-18597af4ae9d" />
 
 
