@@ -24,7 +24,12 @@ interface EditReportDialogProps {
 export const EditReportDialog = ({ report, open, onOpenChange }: EditReportDialogProps) => {
     const { t } = useTranslation();
     const formSchema = z.object({
-        date: z.string().min(1, t('form.dateRequired')),
+        date: z
+            .string()
+            .min(1, t('form.dateRequired'))
+            .refine((val) => dayjs(val).isSameOrBefore(dayjs(), 'day'), {
+                message: t('form.futureDateNotAllowed'),
+            }),
         reason: z.string().min(1, t('form.reasonRequired')),
         comment: z.string().optional(),
     });

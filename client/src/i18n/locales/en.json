@@ -17,6 +17,7 @@
     "errorTitle": "Error",
     "errorMessage": "Please fill in all required fields",
     "dateRequired": "Date is required",
+    "futureDateNotAllowed": "Future sick leave dates are not allowed",
     "reasonRequired": "Reason is required",
     "duplicateTitle": "Report Already Exists",
     "duplicateDescription": "A sick leave report for this date already exists. Would you like to edit the existing report or add a new one?",

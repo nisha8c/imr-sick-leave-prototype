@@ -26,6 +26,16 @@ export const sickLeaveRouter = router({
             //const localDate = dayjs.tz(input.date, input.timezone).startOf("day").toDate();
             const localDate = dayjs.tz(`${input.date}T00:00:00`, input.timezone);
 
+            // Validate that the date is not in the future
+            if (
+                localDate.isAfter(dayjs.tz(dayjs(), input.timezone), "day")
+            ) {
+                throw new TRPCError({
+                    code: "BAD_REQUEST",
+                    message: "Future sick leave dates are not allowed.",
+                });
+            }
+
             const existing = await prisma.sickLeave.findFirst({
                 where: {
                     AND: [

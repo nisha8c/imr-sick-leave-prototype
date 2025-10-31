@@ -17,6 +17,7 @@
     "errorTitle": "Fehler",
     "errorMessage": "Bitte füllen Sie alle Pflichtfelder aus",
     "dateRequired": "Datum ist erforderlich",
+    "futureDateNotAllowed": "Zukünftige Krankmeldedaten sind nicht erlaubt",
     "reasonRequired": "Grund ist erforderlich",
     "duplicateTitle": "Meldung existiert bereits",
     "duplicateDescription": "Eine Krankmeldung für dieses Datum existiert bereits. Möchten Sie die vorhandene Meldung bearbeiten oder eine neue hinzufügen?",
