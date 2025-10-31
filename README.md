@@ -68,7 +68,8 @@ npm run dev
 <img width="1283" height="919" alt="imr2" src="https://github.com/user-attachments/assets/9dc213b6-ce9d-4654-99b0-d45fbb9be73a" />
 <img width="1283" height="919" alt="exists-imr" src="https://github.com/user-attachments/assets/1d35c32b-bea1-4d56-b8ae-98dd5e318060" />
 <img width="1283" height="919" alt="imr-edit" src="https://github.com/user-attachments/assets/4f8107b0-de61-48bc-830c-330cc188e1dc" />
-
+<img width="1283" height="919" alt="german-imr" src="https://github.com/user-attachments/assets/4df1e806-2e13-4b52-82cc-dbdc958eb761" />
+<img width="1283" height="919" alt="svenska-imr" src="https://github.com/user-attachments/assets/276f04e5-a453-4a49-b33d-8ce21c4bdfb1" />
 
 
 
