@@ -18,8 +18,8 @@ datasource db {
 model SickLeave {
   id        String   @id @default(cuid())
   date      DateTime @unique
-  reason    String?
-  comment   String?
+  reason    Bytes?
+  comment   Bytes?
   timezone  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

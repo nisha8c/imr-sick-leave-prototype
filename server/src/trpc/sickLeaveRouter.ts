@@ -23,13 +23,11 @@ export const sickLeaveRouter = router({
             })
         )
         .mutation(async ({ input }) => {
-            //const localDate = dayjs.tz(input.date, input.timezone).startOf("day").toDate();
+            const encryptionKey = process.env.ENCRYPTION_KEY || "default_secret";
             const localDate = dayjs.tz(`${input.date}T00:00:00`, input.timezone);
 
             // Validate that the date is not in the future
-            if (
-                localDate.isAfter(dayjs.tz(dayjs(), input.timezone), "day")
-            ) {
+            if (localDate.isAfter(dayjs.tz(dayjs(), input.timezone), "day")) {
                 throw new TRPCError({
                     code: "BAD_REQUEST",
                     message: "Future sick leave dates are not allowed.",
@@ -53,27 +51,54 @@ export const sickLeaveRouter = router({
             });
 
             if (existing) {
-                return {
-                    message: "duplicate",
-                    existing,
-                };
+                const decrypted = await prisma.$queryRawUnsafe<any[]>(`
+                    SELECT 
+                      id,
+                      date,
+                      pgp_sym_decrypt(reason, $1)::text AS reason,
+                      pgp_sym_decrypt(comment, $1)::text AS comment,
+                      timezone,
+                      "createdAt",
+                      "updatedAt"
+                    FROM "SickLeave"
+                    WHERE id = $2
+                    LIMIT 1;
+                  `, encryptionKey, existing.id);
+
+                return { message: "duplicate", existing: decrypted[0] };
             }
 
+
             try {
-                const newEntry = await prisma.sickLeave.create({
-                    data: {
-                        date: localDate.toDate(),
-                        reason: input.reason,
-                        comment: input.comment,
-                        timezone: input.timezone,
-                    },
-                });
+                const [newEntry] = await prisma.$queryRawUnsafe<any[]>(`
+                            INSERT INTO "SickLeave" (id, date, reason, comment, timezone, "createdAt", "updatedAt")
+                            VALUES (
+                                gen_random_uuid(),
+                                $1,
+                                pgp_sym_encrypt($2::text, $3::text),
+                                pgp_sym_encrypt($4::text, $3::text),
+                                $5,
+                                NOW(),
+                                NOW()
+                            )
+                                RETURNING id, date,
+                                pgp_sym_decrypt(reason, $3)::text AS reason,
+                                pgp_sym_decrypt(comment, $3)::text AS comment,
+                                timezone, "createdAt", "updatedAt";
+                    `,
+                    localDate.toDate(),
+                    input.reason || "",
+                    encryptionKey,
+                    input.comment || "",
+                    input.timezone
+                );
+
 
                 return { message: "Sick leave created successfully", newEntry };
-            } catch (err) {
+            } catch (err: any) {
                 throw new TRPCError({
                     code: "INTERNAL_SERVER_ERROR",
-                    message: "Failed to create sick leave entry.",
+                    message: err.message ,
                     cause: err,
                 });
             }
@@ -83,9 +108,25 @@ export const sickLeaveRouter = router({
     // LIST ALL ENTRIES
     // ------------------------
     list: publicProcedure.query(async () => {
+        const encryptionKey = process.env.ENCRYPTION_KEY || "default_secret";
+
         try {
-            return await prisma.sickLeave.findMany({ orderBy: { date: "desc" } });
+            const reports = await prisma.$queryRawUnsafe<any[]>(`
+                SELECT
+                  id,
+                  date,
+                  pgp_sym_decrypt(reason, $1)::text AS reason,
+                  pgp_sym_decrypt(comment, $1)::text AS comment,
+                  timezone,
+                  "createdAt",
+                  "updatedAt"
+                FROM "SickLeave"
+                ORDER BY date DESC;
+            `, encryptionKey);
+
+            return reports;
         } catch (err) {
+            console.error("List error:", err);
             throw new TRPCError({
                 code: "INTERNAL_SERVER_ERROR",
                 message: "Failed to fetch sick leave entries.",
@@ -95,8 +136,8 @@ export const sickLeaveRouter = router({
     }),
 
     // ------------------------
-    // UPDATE EXISTING ENTRY
-    // ------------------------
+// UPDATE EXISTING ENTRY (Encrypt on update)
+// ------------------------
     update: publicProcedure
         .input(
             z.object({
@@ -107,7 +148,9 @@ export const sickLeaveRouter = router({
             })
         )
         .mutation(async ({ input }) => {
+            const encryptionKey = process.env.ENCRYPTION_KEY || "default_secret";
             const existing = await prisma.sickLeave.findUnique({ where: { id: input.id } });
+
             if (!existing) {
                 throw new TRPCError({
                     code: "NOT_FOUND",
@@ -116,17 +159,29 @@ export const sickLeaveRouter = router({
             }
 
             try {
-                const updated = await prisma.sickLeave.update({
-                    where: { id: input.id },
-                    data: {
-                        date: new Date(input.date),
-                        reason: input.reason,
-                        comment: input.comment,
-                    },
-                });
+                const [updated] = await prisma.$queryRawUnsafe<any[]>(`
+                            UPDATE "SickLeave"
+                            SET date = $1,
+                                reason = pgp_sym_encrypt($2::text, $3::text),
+                                comment = pgp_sym_encrypt($4::text, $3::text),
+                                "updatedAt" = NOW()
+                            WHERE id = $5
+                                RETURNING id, date,
+                                pgp_sym_decrypt(reason, $3)::text AS reason,
+                                pgp_sym_decrypt(comment, $3)::text AS comment,
+                                timezone, "createdAt", "updatedAt";
+                    `,
+                    new Date(input.date),
+                    input.reason || "",
+                    encryptionKey,
+                    input.comment || "",
+                    input.id
+                );
+
 
                 return { message: "Sick leave updated successfully", updated };
             } catch (err) {
+                console.error("Update error:", err);
                 throw new TRPCError({
                     code: "INTERNAL_SERVER_ERROR",
                     message: "Failed to update sick leave entry.",
@@ -134,6 +189,7 @@ export const sickLeaveRouter = router({
                 });
             }
         }),
+
 
     // ------------------------
     // DELETE ENTRY
