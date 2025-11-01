@@ -84,6 +84,21 @@ npm install
 
 Create a .env file (using: _touch .env_) with your **OWN** 'Postgres connection string' and 'encryption key':
 
+🗄️ Setting up the Database (PostgreSQL via Neon)
+
+If you don’t already have a PostgreSQL database, the easiest option is to use Neon
+ — a free, serverless Postgres platform.
+
+**Steps**:
+
+Go to https://neon.tech
+
+ and create a new project.
+
+Once the project is created, click on the “Connect” button.
+
+Copy your connection string, and use it in .env for DATABASE_URL
+
 **DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"
 
 **PORT**=4000
