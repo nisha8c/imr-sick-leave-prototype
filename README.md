@@ -28,6 +28,8 @@ The solution includes:
 > That way user dosn't have to search or scroll the reports view or list._
 
 6. Localized UI with i18n (English, Swedish, German)
+> _Quick setup_
+
 7. The goal was to demonstrate structure, reasoning, and extensibility — not to build a full production system.
 
 
