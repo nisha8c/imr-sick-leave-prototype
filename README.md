@@ -303,7 +303,18 @@ Regular security patches and dependency scanning.
 
 
 
+---
 
+🔐 **_Security Highlight_**
+
+_This prototype implements **real field-level encryption** using PostgreSQL’s `pgcrypto` extension.  
+Sensitive data (the `reason` and `comment` fields) is stored **encrypted at rest** and automatically decrypted on retrieval.  
+This mirrors how a production-grade HR system would handle health-related data securely._
+
+---
+
+✨ _Thank you for reviewing this prototype!_  
+Built with ❤️ using **React**, **tRPC**, **Prisma**, and **PostgreSQL**.
 
 
 
