@@ -46,6 +46,7 @@ The solution includes:
 ### 1. Clone the repository
 
 git clone https://github.com/<your-username>/imr-sick-leave-prototype.git
+
 cd imr-sick-leave-prototype
 
 ### 2. Install dependencies in both 'client' and 'server' folder: 
