@@ -103,6 +103,92 @@ if you try to open it in the browser — this is expected.
 <img width="753" height="832" alt="Api-test-imr" src="https://github.com/user-attachments/assets/ccdf938d-5d31-4047-8e92-18597af4ae9d" />
 
 
+# 🧠 Reflection
+## 1. How did you structure your solution and why?
+I structured the project with a clear separation between frontend, backend, and shared logic to ensure scalability and maintainability.
+
+
+The frontend (React + TypeScript + Tailwind) focuses on a clean, accessible UI for submitting and viewing sick leave reports.
+
+
+The backend uses tRPC and Prisma to provide a type-safe API connected to a PostgreSQL database. This allows consistent typing across client and server without manual API schema maintenance.
+
+
+Validation is centralized using Zod, ensuring data consistency both in frontend forms and backend input handling.
+
+
+The app uses Day.js with timezone support to handle local time accurately and prevent duplicates for the same date in different time zones.
+
+
+Components are modular and reusable (SickLeaveFormFields, ReusableSelect, ConfirmDialog, etc.) to support scalability.
+This structure mirrors how I would build a real-world production feature — type-safe, modular, and easily extendable.
+
+
+
+## 2. What would you do differently if you had more time?
+If I had more time, I would:
+
+
+Add authentication and user roles (employee, HR, admin) to simulate real usage scenarios.
+
+
+Implement analytics and dashboards to visualize sick leave trends over time.
+
+
+Add tests (unit and integration) with Jest for better reliability.
+
+
+Improve responsive UI with charts and visual summaries of leave statistics.
+
+
+Integrate server-side validation for overlapping leaves across multiple users.
+
+
+Add deployment setup with Docker for smoother local and production environments.
+
+
+
+## 3. How could you eventually identify patterns in sick leave data?
+With more time and data, I could build analytics features to identify patterns such as:
+
+
+Frequent sick leave days per employee, team, or department.
+
+
+Seasonal trends, such as spikes in flu-related leaves during winter.
+
+
+Common reasons for absence using keyword aggregation.
+
+
+Frequency and duration of leaves over time.
+These insights could be visualized with charts and heatmaps to help HR teams detect early signs of health issues or workload-related stress.
+This would also allow predictive analysis (e.g., “increased absences in March due to burnout patterns”).
+
+
+
+## 4. Did you consider any aspects related to privacy or data protection?
+Yes — even though this is a prototype, I considered basic data protection principles:
+
+
+The stored data is minimal (only date, reason, comment, timezone) and contains no personal identifiers.
+
+
+In a real-world scenario, I would ensure compliance with GDPR and other privacy laws.
+
+
+Sensitive data (like health-related information) would be encrypted at rest and in transit (using HTTPS and database encryption).
+
+
+Only authorized users (e.g., employees and HR) would have access to their own or team data.
+
+
+I would also implement data retention policies to automatically delete old or irrelevant records.
+
+
+
+
+
 
 
 
