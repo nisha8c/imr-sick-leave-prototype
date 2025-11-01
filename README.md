@@ -99,9 +99,13 @@ Once the project is created, click on the “Connect” button.
 
 Copy your connection string, and use it in .env for DATABASE_URL
 
-> _**DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"
-> **PORT**=4000
-> **ENCRYPTION_KEY**="You-need-to-generate-it-using-below-instructions"_
+> _**DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"_
+
+
+> _**PORT**=4000_
+
+
+> _**ENCRYPTION_KEY**="You-need-to-generate-it-using-below-instructions"_
 
 
 
