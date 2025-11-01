@@ -64,7 +64,7 @@ npm run dev
 
 <img width="1356" height="766" alt="IMR1" src="https://github.com/user-attachments/assets/895e51fe-9aa9-47ba-aac9-2dff7d3bc2a6" />
 
-<img width="1356" height="766" alt="IMR2" src="https://github.com/user-attachments/assets/642edf93-3d0a-4f4e-a84c-3b0ffd2a33ed" />
+<img width="1308" height="794" alt="KRVS" src="https://github.com/user-attachments/assets/b3673951-8c08-4d8b-a213-d1c217ae9a3f" />
 
 <img width="1356" height="766" alt="IMR3" src="https://github.com/user-attachments/assets/97f2e09a-0e3c-4bfb-90c3-ab3d43142c10" />
 
