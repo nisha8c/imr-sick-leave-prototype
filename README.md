@@ -56,7 +56,7 @@ The solution includes:
 
 
 
-## ⚙️ Tech Stack
+# ⚙️ Tech Stack
 <img width="835" height="291" alt="tech-imr" src="https://github.com/user-attachments/assets/2ab305c6-6919-434e-a511-6364264551dd" />
 
 
