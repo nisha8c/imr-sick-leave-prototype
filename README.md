@@ -74,13 +74,13 @@ Create a .env file (using: _touch .env_) with your **OWN** 'Postgres connection 
 
 
 
-🔐 You can generate a secure random key using Node.js or OpenSSL:
+🔐 You can generate a secure random key using **Node.js** _**OR**_ **OpenSSL**:
 
-### Using Node.js
+### Generate ENCRYPTION_KEY Using Node.js
 
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
-### Using OpenSSL
+### Generate ENCRYPTION_KEY Using OpenSSL
 
 openssl rand -hex 32
 
