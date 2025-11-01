@@ -66,22 +66,24 @@ SELECT * FROM pg_extension WHERE extname = 'pgcrypto';
 
 If your Neon user (e.g., neondb_owner) doesn’t own the pgcrypto functions, you might need to grant usage and execute permissions. Run these two commands:
 
--- Allow your user to use the public schema
-✅ GRANT USAGE ON SCHEMA public TO neondb_owner;
+✅ -- Allow your user to use the public schema
 
--- Allow execution of pgcrypto functions
-✅ GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO neondb_owner;
+GRANT USAGE ON SCHEMA public TO neondb_owner;
+
+✅ -- Allow execution of pgcrypto functions
+
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO neondb_owner;
 
 
 If these return “no privileges were granted,” that’s okay — it means your user already has access.
 
-4. Run Prisma migrations (in server folder): 
+### 4. Run Prisma migrations (in server folder): 
 npx prisma migrate dev
 
-5. Start the development server: 
+### 5. Start the development server: 
 npm run dev
 
-6. Start Client: 
+### 6. Start Client: 
 npm run dev
 
 ✅ The app should now be running at:
