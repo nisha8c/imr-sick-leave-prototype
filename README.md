@@ -25,6 +25,11 @@ cd imr-sick-leave-prototype
 
 ### 2. Install dependencies in both 'client' and 'server' folder: 
 
+cd server
+npm install
+
+cd ..
+cd client
 npm install
 
 ### 3. Setup environment variables (in server folder's .env file)
