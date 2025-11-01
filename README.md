@@ -12,6 +12,11 @@ The solution includes:
 > Reason: data quality, data completeness and pattern detection accuracy in future._
 
 
+> _Since using postgres, it was easy to add encryption for data at rest using pgcrypto` extension.
+> I have mentioned the necessary steps for that as well below_
+
+
+
 2. A list view showing previously reported sick leaves
 > _The List has filters : Latest 5, All reports, Monthly, Yearly.
 > User can export the filtered results as CSV or Excel._
