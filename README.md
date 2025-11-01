@@ -59,12 +59,18 @@ npm run dev
 🧠 Type-safe end-to-end validation
 
 ## 🧩 App Screen:
-<img width="1028" height="918" alt="IMR-1" src="https://github.com/user-attachments/assets/f4715fc4-995d-4eb2-86f5-ec3fcbefbfba" />
-<img width="1283" height="919" alt="imr2" src="https://github.com/user-attachments/assets/9dc213b6-ce9d-4654-99b0-d45fbb9be73a" />
-<img width="1283" height="919" alt="exists-imr" src="https://github.com/user-attachments/assets/1d35c32b-bea1-4d56-b8ae-98dd5e318060" />
-<img width="1283" height="919" alt="imr-edit" src="https://github.com/user-attachments/assets/4f8107b0-de61-48bc-830c-330cc188e1dc" />
-<img width="1283" height="919" alt="german-imr" src="https://github.com/user-attachments/assets/4df1e806-2e13-4b52-82cc-dbdc958eb761" />
-<img width="1283" height="919" alt="svenska-imr" src="https://github.com/user-attachments/assets/276f04e5-a453-4a49-b33d-8ce21c4bdfb1" />
+
+<img width="1356" height="766" alt="IMR-START" src="https://github.com/user-attachments/assets/2e9ab8f9-27bc-4e68-957a-f95c5633f530" />
+
+<img width="1356" height="766" alt="IMR1" src="https://github.com/user-attachments/assets/895e51fe-9aa9-47ba-aac9-2dff7d3bc2a6" />
+
+<img width="1356" height="766" alt="IMR2" src="https://github.com/user-attachments/assets/642edf93-3d0a-4f4e-a84c-3b0ffd2a33ed" />
+
+<img width="1356" height="766" alt="IMR3" src="https://github.com/user-attachments/assets/97f2e09a-0e3c-4bfb-90c3-ab3d43142c10" />
+
+<img width="1356" height="766" alt="IMR4" src="https://github.com/user-attachments/assets/9ee45e02-abed-4753-a085-65bdec9b2034" />
+
+<img width="1356" height="766" alt="IMR5" src="https://github.com/user-attachments/assets/af80f1fd-653d-4585-9633-7dd6e180e80f" />
 
 ## 🧪 Testing the API (Important Note about tRPC)
 
