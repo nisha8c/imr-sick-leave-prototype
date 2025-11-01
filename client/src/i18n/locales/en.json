@@ -39,7 +39,9 @@
     "filterMonth": "By Month",
     "filterYear": "By Year",
     "selectMonth": "Select Month",
-    "selectYear": "Select Year"
+    "selectYear": "Select Year",
+    "exportExcel": "Export Excel" ,
+    "exportCSV": "Export CSV"
   },
   "edit": {
     "title": "Edit Sick Leave Report",

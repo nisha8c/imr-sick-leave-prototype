@@ -39,7 +39,9 @@
     "filterMonth": "Nach Monat",
     "filterYear": "Nach Jahr",
     "selectMonth": "Monat Wählen",
-    "selectYear": "Jahr Wählen"
+    "selectYear": "Jahr Wählen",
+    "exportExcel": "Als Excel exportieren" ,
+    "exportCSV": "Als CSV exportieren"
   },
   "edit": {
     "title": "Krankmeldung Bearbeiten",

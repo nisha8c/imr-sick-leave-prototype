@@ -39,7 +39,9 @@
     "filterMonth": "Per Månad",
     "filterYear": "Per År",
     "selectMonth": "Välj Månad",
-    "selectYear": "Välj År"
+    "selectYear": "Välj År",
+    "exportExcel": "Exportera till Excel",
+    "exportCSV": "Exportera till CSV"
   },
   "edit": {
     "title": "Redigera Sjukfrånvaro Rapport",

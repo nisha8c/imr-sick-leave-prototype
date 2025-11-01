@@ -10,6 +10,12 @@ import {ReusableSelect} from "./ReusableSelect.tsx";
 import {toast} from "../hooks/use-toast.tsx";
 import {ConfirmDialog} from "./ConfirmDialog.tsx";
 import {EditReportDialog} from "./EditReportDialog.tsx";
+import {Button} from "./ui/button.tsx";
+import {exportToCSV, exportToExcel} from "../utils/common.ts";
+import { Table, FileText } from "lucide-react";
+
+import {Tooltip, TooltipContent, TooltipTrigger} from "./ui/tooltip.tsx";
+
 
 const locales = { en: enUS, sv, de };
 
@@ -69,6 +75,35 @@ export const SickLeaveList = () => {
             <Card className="border-border md:max-h-[calc(100vh-12rem)] md:flex md:flex-col overflow-hidden">
                 <CardHeader>
                     <CardTitle className={'mb-6'}>{t('list.title')}</CardTitle>
+                    <div className="flex justify-end gap-2 mt-2">
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    onClick={() => exportToCSV(filteredReports)}
+                                    className="bg-background text-foreground hover:bg-accent"
+                                >
+                                    <FileText className="h-4 w-4" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>{t('list.exportCSV')}</TooltipContent>
+                        </Tooltip>
+
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    onClick={() => exportToExcel(filteredReports)}
+                                    className="bg-background text-foreground hover:bg-accent"
+                                >
+                                    <Table className="h-4 w-4" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>{t('list.exportExcel')}</TooltipContent>
+                        </Tooltip>
+                    </div>
 
                     {/* Filters Row */}
                     <div className="mt-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
