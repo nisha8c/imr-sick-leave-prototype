@@ -5,7 +5,13 @@
 This is a simple prototype that allows employees to report sick leave via a clean, user-friendly interface.
 The solution includes:
 
-1. A form for reporting sick leave (date, optional reason, comment)
+1. A form for reporting sick leave (date, reason, optional comment)
+> _I have meade date and reason mandatory fields and comment is optional to
+> encourage users to provide at least minimal context for their sick leave (e.g., flu, stress, etc.),
+> since that can be valuable when identifying patterns later.
+> Reason: data quality, data completeness and pattern detection accuracy in future._
+
+
 2. A list view showing previously reported sick leaves
 3. Basic CRUD operations (create, read, update, delete)
 4. Duplicate date detection (with option to edit existing)
