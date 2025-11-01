@@ -64,7 +64,7 @@ npm install
 
 ### 3. Setup environment variables (in server folder's .env file)
 
-Create a .env file with your **OWN** 'Postgres connection string' and 'encryption key':
+Create a .env file (using: _touch .env_) with your **OWN** 'Postgres connection string' and 'encryption key':
 
 **DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"
 
