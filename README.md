@@ -102,7 +102,7 @@ SELECT * FROM pg_extension WHERE extname = 'pgcrypto';
 
 ### Grant proper permissions to your database user
 
-If your Neon user (e.g., neondb_owner) doesn’t own the pgcrypto functions, you might need to grant usage and execute permissions. Run these two commands:
+If your Neon user (e.g., neondb_owner) doesn’t own the pgcrypto functions, you might need to grant usage and execute permissions. Run these two commands (one at a time if using Neon):
 
 ✅ -- Allow your user to use the public schema
 
