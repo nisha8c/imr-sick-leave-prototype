@@ -38,13 +38,15 @@ npm install
 
 ### 3. Setup environment variables (in server folder's .env file)
 
-Create a .env file with your Postgres connection string and encryption key:
+Create a .env file with your **OWN** 'Postgres connection string' and 'encryption key':
 
-DATABASE_URL="postgresql://user:password@localhost:5432/sickleave"
+**DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"
 
-PORT=4000
+**PORT**=4000
 
-ENCRYPTION_KEY="You-need-to-generate-it-using-below-instructions"
+**ENCRYPTION_KEY**="You-need-to-generate-it-using-below-instructions"
+
+
 
 🔐 You can generate a secure random key using Node.js or OpenSSL:
 
@@ -57,7 +59,8 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 openssl rand -hex 32
 
 
-### Enable the pgcrypto extension in Neon
+
+### 🔐 Enable the pgcrypto extension in Neon
 
 If you’re using Neon Postgres, pgcrypto is often pre-installed but disabled by default.
 
@@ -89,7 +92,7 @@ If these return “no privileges were granted,” that’s okay — it means you
 ### 4. Run Prisma migrations (in server folder): 
 npx prisma migrate dev
 
-### 5. Start the development server: 
+### 5. Start the server: 
 npm run dev
 
 ### 6. Start Client: 
