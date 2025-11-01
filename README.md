@@ -191,6 +191,55 @@ Only authorized users (e.g., employees and HR) would have access to their own or
 
 I would also implement data retention policies to automatically delete old or irrelevant records.
 
+### 🔐 Privacy and Data Protection (In detail)
+
+In this prototype, security mechanisms such as HTTPS, authentication, and encryption are not implemented, since the focus is on functionality and structure.
+However, if this system were developed further into a production-ready application, I would ensure full data protection by introducing the following measures:
+
+#### 1. Data in transit
+
+All communication between the frontend, backend, and database would be encrypted using **HTTPS/TLS**.
+This ensures that sensitive information (e.g., reasons for sick leave) cannot be intercepted during transmission.
+For example, the backend API would be served over HTTPS, and any API requests would use secure credentials or tokens.
+
+#### 2. Data at rest
+
+Sensitive data stored in the database would be encrypted using **PostgreSQL’s pgcrypto extension** or **application-level AES encryption** or if using **AWS key manager**.
+This means that even if the database were compromised, the actual contents (like comments or reasons for sick leave) would remain unreadable.
+Backups and logs would also be stored securely.
+ 
+#### 3. Access control and authentication
+
+In a full system:
+
+**Authentication**: Each user would authenticate (e.g., via OAuth or secure sessions or AWS Cognito).
+
+**Authorization**: Only the logged-in employee could access or edit their own records.
+
+**RBAC**: HR or administrators would have restricted access through role-based permissions.
+
+This prevents unauthorized access to health-related data.
+
+#### 4. Compliance and retention
+
+Data protection would follow GDPR and similar regulations e.g. HIPAA:
+
+Store only the minimum necessary data.
+
+Provide options to anonymize or delete old records after a certain period.
+
+Log access to sensitive records for transparency and auditing.
+
+#### 5. Infrastructure
+
+Deployed systems would use:
+
+Environment variables for secrets (no hardcoded credentials).
+
+Secure Postgres connections using SSL.
+
+Regular security patches and dependency scanning.
+
 
 
 
