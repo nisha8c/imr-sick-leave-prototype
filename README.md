@@ -228,22 +228,22 @@ This structure mirrors how I would build a real-world production feature — typ
 If I had more time, I would:
 
 
-Add authentication and user roles (employee, HR, admin) to simulate real usage scenarios.
+Add **authentication** and **user roles** (employee, HR, admin) to simulate real usage scenarios.
 
 
-Implement analytics and dashboards to visualize sick leave trends over time.
+Implement **analytics and dashboards** to visualize sick leave trends over time.
 
 
-Add tests (unit and integration) with Jest for better reliability.
+Add **tests (unit and integration)** with Jest for better reliability.
 
 
-Improve responsive UI with charts and visual summaries of leave statistics.
+Improve responsive UI with **charts and visual summaries of leave statistics**.
 
 
-Integrate server-side validation for overlapping leaves across multiple users.
+Integrate **server-side validation** for overlapping leaves across multiple users.
 
 
-Add deployment setup with Docker for smoother local and production environments.
+Add deployment setup with **Docker** for smoother local and production environments.
 
 
 
@@ -267,7 +267,7 @@ This would also allow predictive analysis (e.g., “increased absences in March 
 
 
 ## 4. Did you consider any aspects related to privacy or data protection?
-Yes — even though this is a prototype, I considered basic data protection principles:
+Yes — even though this is a prototype, I considered basic data protection principles (_encryption of data at rest has been implemented as mentioned above in overview_):
 
 
 The stored data is minimal (only date, reason, comment, timezone) and contains no personal identifiers.
@@ -276,7 +276,7 @@ The stored data is minimal (only date, reason, comment, timezone) and contains n
 In a real-world scenario, I would ensure compliance with GDPR and other privacy laws.
 
 
-Sensitive data (like health-related information) would be encrypted at rest and in transit (using HTTPS and database encryption).
+Sensitive data (like health-related information) would be encrypted at rest (_using may be AWS key manager_) and in transit (_using HTTPS and database encryption_).
 
 
 Only authorized users (e.g., employees and HR) would have access to their own or team data.
@@ -286,7 +286,7 @@ I would also implement data retention policies to automatically delete old or ir
 
 ### 🔐 Privacy and Data Protection (In detail)
 
-In this prototype, security mechanisms such as HTTPS, authentication, and encryption are not implemented, since the focus is on functionality and structure.
+In this prototype, security mechanisms such as HTTPS, authentication, and full encryption are not implemented, since the focus is on functionality and structure.
 However, if this system were developed further into a production-ready application, I would ensure full data protection by introducing the following measures:
 
 #### 1. Data in transit
@@ -297,7 +297,9 @@ For example, the backend API would be served over HTTPS, and any API requests wo
 
 #### 2. Data at rest
 
-Sensitive data stored in the database would be encrypted using **PostgreSQL’s pgcrypto extension** or **application-level AES encryption** or if using **AWS key manager**.
+>_I hae implemented for reason and comment fields using **PostgreSQL’s pgcrypto extension**_
+
+Sensitive data stored in the database would be encrypted using  **application-level AES encryption** or if using **AWS key manager**.
 
 > _Although this prototype focuses on functionality, I implemented **real field-level encryption** for the `reason` and `comment` columns using PostgreSQL’s **pgcrypto** extension.  
 > This ensures sensitive health-related data is stored **encrypted at rest**, while being automatically decrypted on retrieval through the backend logic.  
