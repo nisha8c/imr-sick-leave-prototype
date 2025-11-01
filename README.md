@@ -15,10 +15,10 @@ The solution includes:
 2. A list view showing previously reported sick leaves
 
 3. Basic CRUD operations (create, read, update, delete)
-> **Currently** user can edit and delete the report
+> _**Currently** user can edit and delete the report
 > However, in future, if admin approves the sick leave, the aproved reports will not be editable or deletable by the user. only Admin can do so.
 > **For now**: Leave can be applied for today or previous dates, not for the future dates.
-> However in future, Non working days, Holidays will also get eliminated.
+> However in future, Non working days, Holidays will also get eliminated._
 
 5. Duplicate date detection (with option to edit existing)
 6. Localized UI with i18n (English, Swedish, German)
