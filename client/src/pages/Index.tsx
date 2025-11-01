@@ -7,7 +7,7 @@ const Index = () => {
         <div className="min-h-screen bg-background px-0 sm:px-4">
             <Header />
             <main className="w-full -mx-[2px] sm:mx-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-7xl mx-auto">
                     <SickLeaveForm />
                     <SickLeaveList />
                 </div>
