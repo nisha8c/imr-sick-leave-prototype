@@ -94,7 +94,7 @@ npm run dev
 ## Backend API (tRPC): http://localhost:4000/trpc   
 
 
-## 💡 Features
+# 💡 Features
 
 ✅ Add a new sick leave report
 
@@ -111,7 +111,7 @@ npm run dev
 🧠 Type-safe end-to-end validation
 
 
-## 🧩 App Screen:
+# 🧩 App Screen:
 
 <img width="1356" height="766" alt="IMR-START" src="https://github.com/user-attachments/assets/2e9ab8f9-27bc-4e68-957a-f95c5633f530" />
 
