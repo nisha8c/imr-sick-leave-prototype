@@ -13,8 +13,8 @@ const languages = [
 export const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
 
-    const handleLanguageChange = (langCode: string) => {
-        i18n.changeLanguage(langCode);
+    const handleLanguageChange = async (langCode: string) => {
+        await i18n.changeLanguage(langCode);
         localStorage.setItem('language', langCode);
     };
 

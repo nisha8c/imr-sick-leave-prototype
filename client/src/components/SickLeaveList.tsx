@@ -26,10 +26,10 @@ export const SickLeaveList = () => {
     const getLocale = () => locales[i18n.language as keyof typeof locales] || enUS;
 
     const deleteMutation = trpc.sickLeave.delete.useMutation({
-        onSuccess: () => {
+        onSuccess: async() => {
             toast({ title: t('delete.successTitle'), description: t('delete.successMessage') });
             setDeletingId(null);
-            utils.sickLeave.list.invalidate(); // refresh list
+            await utils.sickLeave.list.invalidate(); // refresh list
         },
         onError: (error) => {
             toast({

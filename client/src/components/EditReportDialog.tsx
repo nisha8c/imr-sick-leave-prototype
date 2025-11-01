@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import {trpc} from "../utils/trpc.ts";
 import {toast} from "../hooks/use-toast.tsx";
 import type {SickLeave} from "../types/sickLeave.ts";
