@@ -13,6 +13,9 @@ The solution includes:
 
 
 2. A list view showing previously reported sick leaves
+> _The List has filters : Latest 5, All reports, Monthly, Yearly.
+> User can export the filtered results as CSV or Excel._
+
 
 3. Basic CRUD operations (create, read, update, delete)
 > _**Currently** user can edit and delete the report
@@ -21,6 +24,9 @@ The solution includes:
 > However in future, Non working days, Holidays will also get eliminated._
 
 5. Duplicate date detection (with option to edit existing)
+> _If user tries to apply for leave again on same date, a message gets displayed stating so and lets the user edit existing report.
+> That way user dosn't have to search or scroll the reports view or list._
+
 6. Localized UI with i18n (English, Swedish, German)
 7. The goal was to demonstrate structure, reasoning, and extensibility — not to build a full production system.
 
