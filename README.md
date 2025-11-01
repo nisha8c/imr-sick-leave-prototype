@@ -38,11 +38,29 @@ The solution includes:
 7. The goal was to demonstrate structure, reasoning, and extensibility — not to build a full production system.
 
 
+# 💡 Features
+
+✅ Add a new sick leave report
+
+🕒 View history of previous reports
+
+✏️ Edit or delete existing entries
+
+⚠️ Detect and handle duplicate dates
+
+🌍 Multi-language support (EN / SV / DE)
+
+🔄 Live data updates via tRPC
+
+🧠 Type-safe end-to-end validation
+
+
+
 ## ⚙️ Tech Stack
 <img width="835" height="291" alt="tech-imr" src="https://github.com/user-attachments/assets/2ab305c6-6919-434e-a511-6364264551dd" />
 
 
-## 🚀 Running the Project
+# 🚀 Running the Project
 ### 1. Clone the repository
 
 git clone https://github.com/<your-username>/imr-sick-leave-prototype.git
@@ -131,22 +149,6 @@ npm run dev
 
 ## Backend API (tRPC): http://localhost:4000/trpc   
 
-
-# 💡 Features
-
-✅ Add a new sick leave report
-
-🕒 View history of previous reports
-
-✏️ Edit or delete existing entries
-
-⚠️ Detect and handle duplicate dates
-
-🌍 Multi-language support (EN / SV / DE)
-
-🔄 Live data updates via tRPC
-
-🧠 Type-safe end-to-end validation
 
 
 # 🧩 App Screen:
