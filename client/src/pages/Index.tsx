@@ -4,10 +4,10 @@ import {Header} from "../components/Header.tsx";
 
 const Index = () => {
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background px-0 sm:px-4">
             <Header />
-            <main className="container mx-auto px-4 py-8">
-                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <main className="w-full -mx-[2px] sm:mx-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-6xl mx-auto">
                     <SickLeaveForm />
                     <SickLeaveList />
                 </div>

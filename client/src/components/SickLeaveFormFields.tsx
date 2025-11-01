@@ -29,7 +29,7 @@ export const SickLeaveFormFields = <T extends { date: string; reason: string; co
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 text-left">
                 <FormField
                     control={form.control}
                     name={"date" as keyof T as any}
