@@ -297,15 +297,12 @@ For example, the backend API would be served over HTTPS, and any API requests wo
 
 #### 2. Data at rest
 
->_I hae implemented for reason and comment fields using **PostgreSQL’s pgcrypto extension**_
-
-Sensitive data stored in the database would be encrypted using  **application-level AES encryption** or if using **AWS key manager**.
-
 > _Although this prototype focuses on functionality, I implemented **real field-level encryption** for the `reason` and `comment` columns using PostgreSQL’s **pgcrypto** extension.  
 > This ensures sensitive health-related data is stored **encrypted at rest**, while being automatically decrypted on retrieval through the backend logic.  
 > The encryption key is provided via an environment variable (`ENCRYPTION_KEY`) and can be securely generated per environment.  
 > This simulates how a production system would safeguard sensitive HR data._
 
+Sensitive data stored in the database would be encrypted using  **application-level AES encryption** or if using **AWS key manager**.
 
 This means that even if the database were compromised, the actual contents (like comments or reasons for sick leave) would remain unreadable.
 Backups and logs would also be stored securely.
