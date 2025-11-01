@@ -18,19 +18,62 @@ The solution includes:
 
 
 ## 🚀 Running the Project
-1. Clone the repository
+### 1. Clone the repository
+
 git clone https://github.com/<your-username>/imr-sick-leave-prototype.git
 cd imr-sick-leave-prototype
 
-2. Install dependencies in both 'client' and 'server' folder: 
+### 2. Install dependencies in both 'client' and 'server' folder: 
+
 npm install
 
-3. Setup environment variables (in server folder's .env file)
+### 3. Setup environment variables (in server folder's .env file)
 
-Create a .env file with your Postgres connection string:
+Create a .env file with your Postgres connection string and encryption key:
 
 DATABASE_URL="postgresql://user:password@localhost:5432/sickleave"
+
 PORT=4000
+
+ENCRYPTION_KEY="You-need-to-generate-it-using-below-instructions"
+
+🔐 You can generate a secure random key using Node.js or OpenSSL:
+
+### Using Node.js
+
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+### Using OpenSSL
+
+openssl rand -hex 32
+
+
+### Enable the pgcrypto extension in Neon
+
+If you’re using Neon Postgres, pgcrypto is often pre-installed but disabled by default.
+
+✅ Run the following once in your SQL editor (or in a migration):
+
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+
+✅ You can verify installation with:
+
+SELECT * FROM pg_extension WHERE extname = 'pgcrypto';
+
+
+### Grant proper permissions to your database user
+
+If your Neon user (e.g., neondb_owner) doesn’t own the pgcrypto functions, you might need to grant usage and execute permissions. Run these two commands:
+
+-- Allow your user to use the public schema
+✅ GRANT USAGE ON SCHEMA public TO neondb_owner;
+
+-- Allow execution of pgcrypto functions
+✅ GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO neondb_owner;
+
+
+If these return “no privileges were granted,” that’s okay — it means your user already has access.
 
 4. Run Prisma migrations (in server folder): 
 npx prisma migrate dev
@@ -40,6 +83,13 @@ npm run dev
 
 6. Start Client: 
 npm run dev
+
+✅ The app should now be running at:
+
+## Frontend: http://localhost:5173   
+ (or similar Vite port)
+
+## Backend API (tRPC): http://localhost:4000/trpc   
 
 
 ## 💡 Features
@@ -57,6 +107,7 @@ npm run dev
 🔄 Live data updates via tRPC
 
 🧠 Type-safe end-to-end validation
+
 
 ## 🧩 App Screen:
 
