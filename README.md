@@ -169,18 +169,19 @@ npm run dev
 
 
 # 🧩 App Screen:
+<img width="1362" height="844" alt="scr1" src="https://github.com/user-attachments/assets/38835072-ee79-4cc4-bdc3-d5066d148bbe" />
 
-<img width="1356" height="766" alt="IMR-START" src="https://github.com/user-attachments/assets/2e9ab8f9-27bc-4e68-957a-f95c5633f530" />
+<img width="1362" height="844" alt="scr2" src="https://github.com/user-attachments/assets/c30b42cd-b5a5-4cd7-b2bb-c4e630a9eb24" />
 
-<img width="1356" height="766" alt="IMR1" src="https://github.com/user-attachments/assets/895e51fe-9aa9-47ba-aac9-2dff7d3bc2a6" />
+<img width="1362" height="844" alt="scr3" src="https://github.com/user-attachments/assets/8bafa8d0-1dd9-4288-b452-bb9b4a184bf0" />
 
-<img width="1308" height="794" alt="KRVS" src="https://github.com/user-attachments/assets/b3673951-8c08-4d8b-a213-d1c217ae9a3f" />
+<img width="1362" height="844" alt="scr4" src="https://github.com/user-attachments/assets/19097492-79c5-491d-a8f0-6c57495098e7" />
 
-<img width="1356" height="766" alt="IMR3" src="https://github.com/user-attachments/assets/97f2e09a-0e3c-4bfb-90c3-ab3d43142c10" />
+<img width="1362" height="844" alt="scr5" src="https://github.com/user-attachments/assets/fdeaa98a-2390-4908-938b-39d626243ca9" />
 
-<img width="1356" height="766" alt="IMR4" src="https://github.com/user-attachments/assets/9ee45e02-abed-4753-a085-65bdec9b2034" />
+<img width="1362" height="844" alt="scr6" src="https://github.com/user-attachments/assets/afe1ca59-e299-4493-9fe0-c3cd6b95429c" />
 
-<img width="1356" height="766" alt="IMR5" src="https://github.com/user-attachments/assets/af80f1fd-653d-4585-9633-7dd6e180e80f" />
+
 
 ## 🧪 Testing the API (Important Note about tRPC)
 
