@@ -49,7 +49,8 @@
     "saving": "Speichern...",
     "cancel": "Abbrechen",
     "successTitle": "Aktualisiert",
-    "successMessage": "Krankmeldung erfolgreich aktualisiert"
+    "successMessage": "Krankmeldung erfolgreich aktualisiert",
+    "description": "Aktualisieren Sie unten die Angaben zu Ihrer Krankmeldung."
   },
   "delete": {
     "title": "Meldung Löschen",

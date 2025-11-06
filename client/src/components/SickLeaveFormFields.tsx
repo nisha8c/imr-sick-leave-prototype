@@ -14,6 +14,7 @@ interface SickLeaveFormFieldsProps<T extends { date: string; reason: string; com
     cancelLabel?: string;
     onCancel?: () => void;
     showCancel?: boolean;
+    isEditMode?: boolean;
 }
 
 export const SickLeaveFormFields = <T extends { date: string; reason: string; comment?: string }>({
@@ -24,6 +25,7 @@ export const SickLeaveFormFields = <T extends { date: string; reason: string; co
                                                                                                       cancelLabel,
                                                                                                       onCancel,
                                                                                                       showCancel = false,
+                                                                                                      isEditMode = false,
                                                                                                   }: SickLeaveFormFieldsProps<T>) => {
     const { t } = useTranslation();
 
@@ -35,9 +37,15 @@ export const SickLeaveFormFields = <T extends { date: string; reason: string; co
                     name={"date" as keyof T as any}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>{t('form.date')}</FormLabel>
+                            <FormLabel>{t('form.date')}
+                                <span className="text-destructive ml-1">*</span>
+                            </FormLabel>
                             <FormControl>
-                                <Input type="date" {...field} className="bg-background border-input" />
+                                <Input
+                                    type="date" {...field}
+                                    className="bg-background border-input"
+                                    disabled={isEditMode}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -49,7 +57,9 @@ export const SickLeaveFormFields = <T extends { date: string; reason: string; co
                     name={"reason" as keyof T as any}
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>{t('form.reason')}</FormLabel>
+                            <FormLabel>{t('form.reason')}
+                                <span className="text-destructive ml-1">*</span>
+                            </FormLabel>
                             <FormControl>
                                 <Input
                                     {...field}

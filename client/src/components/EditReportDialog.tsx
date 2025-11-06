@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {trpc} from "../utils/trpc.ts";
 import {toast} from "../hooks/use-toast.tsx";
 import type {SickLeave} from "../types/sickLeave.ts";
-import {Dialog, DialogContent, DialogHeader, DialogTitle} from "./ui/dialog.tsx";
+import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle} from "./ui/dialog.tsx";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
@@ -76,6 +76,9 @@ export const EditReportDialog = ({ report, open, onOpenChange }: EditReportDialo
             <DialogContent className="bg-card border-border">
                 <DialogHeader>
                     <DialogTitle className="text-foreground">{t('edit.title')}</DialogTitle>
+                    <DialogDescription>
+                        {t('edit.description')}
+                    </DialogDescription>
                 </DialogHeader>
                 <SickLeaveFormFields
                     form={form}
@@ -85,6 +88,7 @@ export const EditReportDialog = ({ report, open, onOpenChange }: EditReportDialo
                     cancelLabel={t('edit.cancel')}
                     onCancel={() => onOpenChange(false)}
                     showCancel
+                    isEditMode
                 />
             </DialogContent>
         </Dialog>

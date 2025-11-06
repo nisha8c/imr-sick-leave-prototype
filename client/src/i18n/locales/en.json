@@ -49,7 +49,8 @@
     "saving": "Saving...",
     "cancel": "Cancel",
     "successTitle": "Updated",
-    "successMessage": "Sick leave report updated successfully"
+    "successMessage": "Sick leave report updated successfully",
+    "description": "Update the details of your sick leave report below."
   },
   "delete": {
     "title": "Delete Report",

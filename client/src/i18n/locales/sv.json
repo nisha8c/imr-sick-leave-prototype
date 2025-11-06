@@ -49,7 +49,8 @@
     "saving": "Sparar...",
     "cancel": "Avbryt",
     "successTitle": "Uppdaterad",
-    "successMessage": "Sjukfrånvaro rapport uppdaterad framgångsrikt"
+    "successMessage": "Sjukfrånvaro rapport uppdaterad framgångsrikt",
+    "description": "Uppdatera detaljerna för din sjukanmälan nedan."
   },
   "delete": {
     "title": "Ta Bort Rapport",
