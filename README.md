@@ -54,6 +54,10 @@ The solution includes:
 
 🧠 Type-safe end-to-end validation
 
+♿ Accessibility-first approach  
+The UI follows accessibility best practices inspired by WCAG 2.1 AA — including proper form labeling, keyboard navigation, readable contrast, and internationalization (EN/SV/DE).
+
+
 
 
 # ⚙️ Tech Stack
