@@ -374,6 +374,10 @@ Built with ❤️ using **React**, **tRPC**, **Prisma**, and **PostgreSQL**.
 
 
 
+🕓 **Note**: Minor fixes (worth 2 minutes of work) and accessibility improvements were added after the initial submission (Nov 4) for completeness.
+
+
+
 
 
 
