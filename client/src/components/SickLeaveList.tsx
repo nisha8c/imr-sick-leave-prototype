@@ -28,7 +28,14 @@ export const SickLeaveList = () => {
     const [selectedMonth, setSelectedMonth] = useState('');
     const [selectedYear, setSelectedYear] = useState('');
     const utils = trpc.useUtils();
-    const { data: reports = [], isLoading } = trpc.sickLeave.list.useQuery();
+    // const { data: reports = [], isLoading } = trpc.sickLeave.list.useQuery();
+
+    const { data, isLoading } = trpc.sickLeave.list.useQuery({
+        filterType,
+        month: selectedMonth,
+        year: selectedYear,
+    });
+
     const getLocale = () => locales[i18n.language as keyof typeof locales] || enUS;
 
     const deleteMutation = trpc.sickLeave.delete.useMutation({
@@ -46,6 +53,7 @@ export const SickLeaveList = () => {
         },
     });
 
+    /*
     const availableMonths = useMemo(() => {
         const months = new Set<string>();
         reports.forEach(r => months.add(format(new Date(r.date), 'yyyy-MM')));
@@ -67,6 +75,15 @@ export const SickLeaveList = () => {
             return filtered.filter(r => format(new Date(r.date), 'yyyy') === selectedYear);
         return filtered;
     }, [reports, filterType, selectedMonth, selectedYear]);
+
+     */
+
+
+    const reports = data?.reports ?? [];
+    const availableMonths = data?.availableMonths ?? [];
+    const availableYears = data?.availableYears ?? [];
+    const filteredReports = reports;
+
 
     if (isLoading) return <p>Loading...</p>;
 
