@@ -108,13 +108,13 @@ Once the project is created, click on the “Connect” button.
 Copy your connection string, and use it in .env for DATABASE_URL
 ```bash
 
-**DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"
+DATABASE_URL="postgresql://user:password@localhost:5432/sickleave"
 
 
-**PORT**=4000
+PORT=4000
 
 
-**ENCRYPTION_KEY**="You-need-to-generate-it-using-below-instructions"
+ENCRYPTION_KEY="You-need-to-generate-it-using-below-instructions"
 ```
 
 
