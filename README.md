@@ -67,12 +67,15 @@ The UI follows accessibility best practices inspired by WCAG 2.1 AA — includin
 # 🚀 Running the Project
 ### 1. Clone the repository
 
+```bash
 git clone https://github.com/<your-username>/imr-sick-leave-prototype.git
 
 cd imr-sick-leave-prototype
+```
 
 ### 2. Install dependencies in both 'client' and 'server' folder: 
 
+```bash
 cd server
 
 npm install
@@ -83,6 +86,7 @@ cd ..
 cd client
 
 npm install
+```
 
 ### 3. Setup environment variables (in server folder's .env file)
 
@@ -102,27 +106,30 @@ Go to https://neon.tech
 Once the project is created, click on the “Connect” button.
 
 Copy your connection string, and use it in .env for DATABASE_URL
+```bash
 
-> _**DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"_
-
-
-> _**PORT**=4000_
+**DATABASE_URL**="postgresql://user:password@localhost:5432/sickleave"
 
 
-> _**ENCRYPTION_KEY**="You-need-to-generate-it-using-below-instructions"_
+**PORT**=4000
 
+
+**ENCRYPTION_KEY**="You-need-to-generate-it-using-below-instructions"
+```
 
 
 🔐 You can generate a secure random key using **Node.js** _**OR**_ **OpenSSL**:
 
 ### Generate ENCRYPTION_KEY Using Node.js
+```bash
 
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
 
 ### Generate ENCRYPTION_KEY Using OpenSSL
-
+```bash
 openssl rand -hex 32
-
+```
 
 
 ### 🔐 Enable the pgcrypto extension in Neon
@@ -130,13 +137,16 @@ openssl rand -hex 32
 If you’re using Neon Postgres, pgcrypto is often pre-installed but disabled by default.
 
 ✅ Run the following once in your SQL editor (or in a migration):
+```bash
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
-
+```
 
 ✅ You can verify installation with:
 
+```bash
 SELECT * FROM pg_extension WHERE extname = 'pgcrypto';
+```
 
 
 ### Grant proper permissions to your database user
@@ -144,24 +154,32 @@ SELECT * FROM pg_extension WHERE extname = 'pgcrypto';
 If your Neon user (e.g., neondb_owner) doesn’t own the pgcrypto functions, you might need to grant usage and execute permissions. Run these two commands (one at a time if using Neon):
 
 ✅ -- Allow your user to use the public schema
+```bash
 
 GRANT USAGE ON SCHEMA public TO neondb_owner;
+```
 
 ✅ -- Allow execution of pgcrypto functions
+```bash
 
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO neondb_owner;
-
+```
 
 If these return “no privileges were granted,” that’s okay — it means your user already has access.
 
 ### 4. Run Prisma migrations (in server folder): 
+```bash
 npx prisma migrate dev
-
+```
 ### 5. Start the server: 
+```bash
 npm run dev
+```
 
 ### 6. Start Client: 
+```bash
 npm run dev
+```
 
 ✅ The app should now be running at:
 
@@ -196,6 +214,8 @@ They are **remote procedure calls (RPCs)** that can only be invoked through the 
 http://localhost:4000/trpc/sickLeave.create
 will show:
 
+```bash
+
 {
   "error": {
     "message": "Unsupported GET-request to mutation procedure at path \"sickLeave.create\"",
@@ -208,7 +228,7 @@ will show:
     }
   }
 }
-
+```
 
 ### BUT : 
 if you try to open it in the browser — this is expected.
